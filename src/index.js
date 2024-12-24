@@ -13,7 +13,8 @@ app.use(express.json());
 
 // Connect to MongoDB
 
-const mongo = "mongodb+srv://sbcaccount28:MolVerse123@cluster0.q8njk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const mongo =
+  "mongodb+srv://sbcaccount28:MolVerse123@cluster0.q8njk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 mongoose
   .connect(mongo, {
     useNewUrlParser: true,
@@ -118,6 +119,4 @@ app.get("/protected", verifyToken, (req, res) => {
   res.status(200).json({ message: "You are authorized", user: req.user });
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+module.exports = app;
